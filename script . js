@@ -1,0 +1,15 @@
+fetch("contacts.json")
+  .then(response => response.json())
+  .then(contacts => {
+    const list = document.getElementById("contactList");
+
+    contacts.forEach(contact => {
+      const li = document.createElement("li");
+      li.innerHTML = `
+        <strong>${contact.name}</strong><br>
+        📞 ${contact.phone}<br>
+        ✉️ ${contact.email}
+      `;
+      list.appendChild(li);
+    });
+  });
